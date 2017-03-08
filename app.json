@@ -1,0 +1,27 @@
+{
+  "name": "ProcoreOauthRuby",
+  "description": "A barebones sinatra app that can authenticate via oauth and make some basic api calls.",
+  "repository": "https://github.com/procore/procore-oauth-ruby",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["ruby", "sinatra", "oauth"],
+  "success_url": "/",
+  "env": {
+    "PROCORE_CLIENT_ID": {
+      "description": "The third party app oauth client id provided by Procore",
+      "required": true
+    },
+    "PROCORE_CLIENT_SECRET": {
+      "description": "The third party app oauth client secret",
+      "required": true
+    },
+    "PROCORE_API_URL": {
+      "description": "Procore API base url",
+      "required": true,
+      "value": "https://app.procore.com"
+    },
+    "PROCORE_OAUTH2_REDIRECT_URI": {
+      "description": "url for this application that will receive the oauth authorization_code callback, usually https://{app_name}.herokuapp.com/callback",
+      "required": true
+    }
+  }
+}
