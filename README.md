@@ -4,7 +4,7 @@
 
 1. register app with procore to:
     - get a client_id and client_secret
-    - register redirect uris where this app will receive OAuth callbacks after successfull oauth request
+    - register redirect uris where this app will receive OAuth callbacks after successful oauth request
 2. Copy `.env.example` to `.env` and update values with your credentials
 
 ### To run locally
