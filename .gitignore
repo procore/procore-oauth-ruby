@@ -2,3 +2,4 @@
 .env*
 .oauth
 tmp/
+log/
