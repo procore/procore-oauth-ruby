@@ -1,5 +1,6 @@
 require 'sinatra/reloader' if development?
 require 'pry' if development?
+require 'awesome_print' if development?
 require 'json'
 
 class App < Sinatra::Base
@@ -15,7 +16,7 @@ class App < Sinatra::Base
     OAuth2::Client.new(
       ENV.fetch('PROCORE_CLIENT_ID', 'proauth-local'),
       ENV.fetch('PROCORE_CLIENT_SECRET', 'pleaseUseA4RealSecret.'),
-      site: ENV.fetch('PROCORE_API_URL') {"http://localhost:3000"},
+      site: ENV.fetch('PROCORE_API_URL') {"https://app.procore.com"},
     )
   end
 
@@ -67,9 +68,6 @@ class App < Sinatra::Base
     result = authorized_api_request(params[:splat].join('/'), request.query_string)
     json JSON.parse(result.body)
   end
-
-
-
 end
 
 
