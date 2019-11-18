@@ -1,6 +1,14 @@
+require 'bundler/setup'
+Bundler.setup(:default)
+require 'dotenv'
+require 'httparty'
+require 'json'
+require 'oauth2'
+require 'sinatra'
+require 'sinatra/contrib'
 require 'sinatra/reloader' if development?
 require 'pry' if development?
-require 'json'
+Dotenv.load
 
 class App < Sinatra::Base
   set :sessions, true
@@ -15,7 +23,7 @@ class App < Sinatra::Base
     OAuth2::Client.new(
       ENV.fetch('PROCORE_CLIENT_ID', 'proauth-local'),
       ENV.fetch('PROCORE_CLIENT_SECRET', 'pleaseUseA4RealSecret.'),
-      site: ENV.fetch('PROCORE_API_URL') {"http://localhost:3000"},
+      site: ENV.fetch('PROCORE_LOGIN_URL') {'http://localhost:4000'},
     )
   end
 
@@ -28,10 +36,11 @@ class App < Sinatra::Base
   end
 
   def authorized_api_request(path, query_string=nil)
-    HTTParty.get("#{client.site}/#{path}?#{query_string}",
+    HTTParty.get("#{ENV.fetch('PROCORE_API_URL', 'https://api.procore.com')}/#{path}?#{query_string}",
       headers: {
         'Authorization' => "Bearer #{session[:access_token]}",
         'Accept' => 'application/json',
+        'Content-Type' => 'application/json',
       })
   end
 
@@ -67,9 +76,6 @@ class App < Sinatra::Base
     result = authorized_api_request(params[:splat].join('/'), request.query_string)
     json JSON.parse(result.body)
   end
-
-
-
 end
 
 

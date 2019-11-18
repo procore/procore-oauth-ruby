@@ -26,7 +26,8 @@
     && git push heroku \
     && heroku config:set PROCORE_CLIENT_SECRET=xxx \
     && heroku config:set PROCORE_CLIENT_ID=XXX \
-    && heroku config:set PROCORE_API_URL=https://app.procore.com \
+    && heroku config:set PROCORE_API_URL=https://api.procore.com \
+    && heroku config:set PROCORE_LOGIN_URL=https://login.procore.com \
     && heroku config:set PROCORE_OAUTH2_REDIRECT_URI=https://${APP_NAME}.herokuapp.com/callback \
     && heroku open
     heroku logs --tail

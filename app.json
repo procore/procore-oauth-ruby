@@ -17,7 +17,12 @@
     "PROCORE_API_URL": {
       "description": "Procore API base url",
       "required": true,
-      "value": "https://app.procore.com"
+      "value": "https://api.procore.com"
+    },
+    "PROCORE_LOGIN_URL": {
+      "description": "Procore API Login Service url",
+      "required": true,
+      "value": "https://login.procore.com"
     },
     "PROCORE_OAUTH2_REDIRECT_URI": {
       "description": "url for this application that will receive the oauth authorization_code callback, usually https://{app_name}.herokuapp.com/callback",

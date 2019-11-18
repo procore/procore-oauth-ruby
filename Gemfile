@@ -1,16 +1,15 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem "sinatra"
-gem "sinatra-contrib"
-gem "puma"
-gem "oauth2"
 gem "dotenv"
+gem "foreman"
 gem "httparty"
+gem "oauth2"
+gem "puma"
+gem "sinatra-contrib"
+gem "sinatra"
 
 group :development do
-  gem "pry"
   gem "awesome_print"
-  gem "benchmark-ips"
-  gem "foreman"
+  gem "pry"
 end
