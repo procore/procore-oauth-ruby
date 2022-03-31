@@ -17,6 +17,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    nio4r (2.5.8)
     oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -27,7 +28,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    puma (3.6.0)
+    puma (5.6.4)
+      nio4r (~> 2.0)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
@@ -59,9 +61,9 @@ DEPENDENCIES
   httparty
   oauth2
   pry
-  puma
+  puma (>= 4.3.12)
   sinatra
   sinatra-contrib
 
 BUNDLED WITH
-   1.12.5
+   1.17.3
