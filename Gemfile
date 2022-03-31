@@ -3,7 +3,7 @@ source "https://rubygems.org"
 
 gem "sinatra"
 gem "sinatra-contrib"
-gem "puma"
+gem "puma", ">= 4.3.12"
 gem "oauth2"
 gem "dotenv"
 gem "httparty"
