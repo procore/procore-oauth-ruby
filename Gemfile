@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem "sinatra"
 gem "sinatra-contrib"
 gem "puma"
-gem "oauth2"
+gem "oauth2", ">= 1.4.11"
 gem "dotenv"
 gem "httparty"
 
